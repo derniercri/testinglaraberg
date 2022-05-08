@@ -18,12 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/posts', PostController::class);
-//Route::get('post-create', [PostController::class, 'create'])->name('posts.create')->middleware('auth');
-//Route::get('posts', [PostController::class, 'index'])->name('posts.index')->middleware('auth');
-//Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show')->middleware('auth');
-//Route::get('posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit')->middleware
-('auth');
+Route::resource('/posts', PostController::class)->middleware('auth');
+
 
 Route::post('post', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
 Route::post('post-update', [PostController::class, 'update'])->name('posts.update')->middleware

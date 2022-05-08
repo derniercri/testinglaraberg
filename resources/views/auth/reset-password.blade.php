@@ -1,20 +1,21 @@
-@component('layouts.guest')
-    @component('components.auth-card')
+<x-guest-layout>
+    <x-auth-card>
 
         <!-- Validation Errors -->
-        @include('includes.auth-validation-errors')
+        <x-auth-validation-errors></x-auth-validation-errors>
 
         <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+        @csrf
 
-            <!-- Password Reset Token -->
+        <!-- Password Reset Token -->
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
             <!-- Email Address -->
             <div>
                 <label for="email">{{ __('Email') }}</label>
 
-                <input id="email" type="email" name="email" value="{{ old('email', $request->email) }}" required autofocus>
+                <input id="email" type="email" name="email" value="{{ old('email', $request->email) }}" required
+                       autofocus>
             </div>
 
             <!-- Password -->
@@ -29,8 +30,8 @@
                 <label for="password_confirmation">{{ __('Confirm Password') }}</label>
 
                 <input id="password_confirmation"
-                                    type="password"
-                                    name="password_confirmation" required>
+                       type="password"
+                       name="password_confirmation" required>
             </div>
 
             <div>
@@ -39,5 +40,5 @@
                 </button>
             </div>
         </form>
-    @endcomponent
-@endcomponent
+    </x-auth-card>
+</x-guest-layout>
