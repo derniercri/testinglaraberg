@@ -1,15 +1,15 @@
-@component('layouts.guest')
-    @component('components.auth-card')
+<x-guest-layout>
+    <x-auth-card>
         <!-- Session Status -->
-        @include('includes.auth-session-status')
+        <x-auth-session-status></x-auth-session-status>
 
         <!-- Validation Errors -->
-        @include('includes.auth-validation-errors')
+        <x-auth-validation-errors></x-auth-validation-errors>
 
         <form method="POST" action="{{ route('login') }}">
-            @csrf
+        @csrf
 
-            <!-- Email Address -->
+        <!-- Email Address -->
             <div>
                 <label for="email">{{ __('Email') }}</label>
 
@@ -21,9 +21,9 @@
                 <label for="password">{{ __('Password') }}</label>
 
                 <input id="password"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password">
+                       type="password"
+                       name="password"
+                       required autocomplete="current-password">
             </div>
 
             <!-- Remember Me -->
@@ -45,5 +45,5 @@
                 </button>
             </div>
         </form>
-    @endcomponent
-@endcomponent
+    </x-auth-card>
+</x-guest-layout>

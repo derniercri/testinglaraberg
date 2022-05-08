@@ -1,29 +1,29 @@
-@component('layouts.guest')
-    @component('components.auth-card')
+<x-guest-layout>
+    <x-auth-card>
 
         <!-- Validation Errors -->
-        @include('includes.auth-validation-errors')
+        <x-auth-validation-errors></x-auth-validation-errors>
 
         <form method="POST" action="{{ route('register') }}">
-            @csrf
+        @csrf
 
-            <!-- Name -->
+        <!-- Name -->
             <div>
                 <label for="first_name">{{ __('First Name') }}</label>
 
-                <input id="first_name"  type="text" name="first_name" value="{{ old('name') }}" required autofocus />
+                <input id="first_name" type="text" name="first_name" value="{{ old('name') }}" required autofocus/>
             </div>
             <div>
                 <label for="last_name">{{ __('Last Name') }}</label>
 
-                <input id="last_name"  type="text" name="last_name" value="{{ old('name') }}" required autofocus />
+                <input id="last_name" type="text" name="last_name" value="{{ old('name') }}" required autofocus/>
             </div>
 
             <!-- Email Address -->
             <div>
                 <label for="email">{{ __('Email') }}</label>
 
-                <input id="email"  type="email" name="email" value="{{ old('email') }}" required />
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required/>
             </div>
 
             <!-- Password -->
@@ -31,9 +31,9 @@
                 <label for="password">{{ __('Password') }}</label>
 
                 <input id="password"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                       type="password"
+                       name="password"
+                       required autocomplete="new-password"/>
             </div>
 
             <!-- Confirm Password -->
@@ -41,8 +41,8 @@
                 <label for="password_confirmation">{{ __('Confirm Password') }}</label>
 
                 <input id="password_confirmation"
-                                type="password"
-                                name="password_confirmation" required />
+                       type="password"
+                       name="password_confirmation" required/>
             </div>
 
             <div>
@@ -55,5 +55,5 @@
                 </button>
             </div>
         </form>
-    @endcomponent
-@endcomponent
+    </x-auth-card>
+</x-guest-layout>
