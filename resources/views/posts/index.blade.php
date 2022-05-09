@@ -3,15 +3,17 @@
         liste des posts
     @endslot
     <div class="posts-index">
-    @foreach($posts as $post)
+        @foreach($posts as $post)
             <div class="post">
                 <h2>{{ $post->title }} - {{ $post->user->name }}</h2>
-               contenu :  {!! $post->body !!}
+                <img src="{{$post?->thumbnail ?? 'https://picsum.photos/350/150'}}" alt="">
                 <div>
-                   extrait :  {{$post->excerpt}}
+                    {!! $post->excerpt !!}
                 </div>
+
                 <a href="{{route('posts.show', ['post'=>$post])}}">En voir plus </a>
+
             </div>
-    @endforeach
+        @endforeach
     </div>
 </x-app-layout>
