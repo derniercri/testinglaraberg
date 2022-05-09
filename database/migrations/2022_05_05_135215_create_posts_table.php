@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('user_id')->default(1);
             $table->integer('category_id')->default(1);
             $table->integer('age_id')->default(1);
-            $table->integer('tag_id')->default(1);
             $table->timestamps();
         });
     }
