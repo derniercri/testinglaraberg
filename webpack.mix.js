@@ -15,6 +15,6 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 mix.js('resources/js/app.js', 'public/js').sass('resources/scss/app.scss', 'public/css');
 
-mix.browserSync({
-    proxy:'http://laraberg.test'
-})
+// mix.browserSync({
+//     proxy:'http://laraberg.test'
+// })
