@@ -41,6 +41,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'posts' => 'array',
     ];
 
     public function posts(): HasMany

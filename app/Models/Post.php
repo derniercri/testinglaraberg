@@ -18,6 +18,9 @@ class Post extends Model
     protected $fillable = [
         'title', 'body', 'excerpt', 'user_id', 'category_id', 'age_id',
     ];
+    protected $casts = [
+        'user' => 'array',
+    ];
 
     public function user(): BelongsTo
     {
@@ -29,9 +32,9 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function ages(): HasMany
+    public function age(): BelongsTo
     {
-        return $this->hasMany(Age::class);
+        return $this->belongsTo(Age::class);
     }
 
     public function tags(): HasMany

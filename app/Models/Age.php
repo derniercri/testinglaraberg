@@ -9,7 +9,7 @@ class Age extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['age'];
+    protected $fillable = ['title','slug'];
 
     public function posts()
     {
