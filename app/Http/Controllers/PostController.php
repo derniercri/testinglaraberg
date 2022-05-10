@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Age;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Test;
 use Illuminate\Http\Request;
@@ -27,7 +29,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create', [
+                'posts' => Post::all(),
+                'categories' => Category::all(),
+                'ages' =>Age::all()
+            ]
+        );
 
     }
 
@@ -40,7 +47,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         Post::create(
-            ['body' => $request->body]
+            [
+                'body' => $request->body,
+                'title' => $request->title,
+                'excerpt' => $request->excerpt,
+                'category_id' => $request->category,
+                'age_id' => $request->age,
+            ]
         );
         return redirect()->route('posts.index');
     }

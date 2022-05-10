@@ -1,3 +1,7 @@
+.post-create__form__submit__container {
+  display: flex;
+  justify-content: flex-end;
+}
 .post-create__form__submit {
   margin: 10px 2rem;
   background: #0d66c2;
@@ -5,7 +9,6 @@
   border: none;
   padding: 8px;
   border-radius: 12px;
-  display: flex;
 }
 
 .posts-index {
