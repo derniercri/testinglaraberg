@@ -18,10 +18,18 @@ return new class extends Migration
             $table->string('title');
             $table->longText('body')->nullable();
             $table->string('excerpt')->nullable();
-            $table->integer('user_id')->default(1);
-            $table->integer('category_id')->default(1);
-            $table->integer('age_id')->default(1);
-            $table->integer('tag_id')->default(1);
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');;
+            $table->foreign('age_id')
+                ->references('id')
+                ->on('ages')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

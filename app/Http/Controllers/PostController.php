@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -32,7 +34,7 @@ class PostController extends Controller
         return view('posts.create', [
                 'posts' => Post::all(),
                 'categories' => Category::all(),
-                'ages' =>Age::all()
+                'ages' => Age::all()
             ]
         );
 
@@ -46,13 +48,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create(
+
+$post = Post::create(
             [
                 'body' => $request->body,
                 'title' => $request->title,
                 'excerpt' => $request->excerpt,
                 'category_id' => $request->category,
                 'age_id' => $request->age,
+                'user_id' => Auth::id(),
             ]
         );
         return redirect()->route('posts.index');

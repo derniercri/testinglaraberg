@@ -16,7 +16,7 @@ class Post extends Model
     use Gutenbergable;
 
     protected $fillable = [
-        'title', 'body', 'excerpt', 'user_id', 'category_id'
+        'title', 'body', 'excerpt', 'user_id', 'category_id', 'age_id',
     ];
 
     public function user(): BelongsTo

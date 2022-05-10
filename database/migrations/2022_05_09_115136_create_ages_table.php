@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('ages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->timestamps();
         });
     }
 
