@@ -1,0 +1,34 @@
+/*-------------------------------------------------------------
+Colors
+/*--------------------------------------------------------------*/
+
+$color-black: #171C26;
+$color-white: #FFFFFF;
+$color-blue: #09C0FA;
+$color-sand: #ffb647;
+
+/*--------------------------------------------------------------
+# Breakpoint
+--------------------------------------------------------------*/
+$breakpoint-960: 960px;
+$breakpoint-700: 700px;
+
+/*--------------------------------------------------------------
+# Variables Communes
+--------------------------------------------------------------*/
+$font-weight-normal: 400s;
+$font-weight-bold: 700;
+
+/*--- Font ---*/
+$font-family-whizKid: WhizKid, sans-serif;
+$font-family-Haeresletter: Haeresletter, sans-serif;
+$font-family-SchoolTeacherRegular: SchoolTeacher, sans-serif;
+
+
+@function headings($from:1, $to:6) {
+    @if $from == $to {
+        @return 'h#{$from}';
+    } @else {
+        @return 'h#{$from},' + headings($from+1, $to);
+    }
+}

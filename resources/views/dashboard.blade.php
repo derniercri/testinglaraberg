@@ -1,6 +1,3 @@
-@component('layouts.app')
-    @slot('header')
-        {{ __('Logged In Dashboard') }}
-    @endslot
-    You're logged in!
-@endcomponent
+<x-guest-layout>
+    <x-page-header header="Dashboard"></x-page-header>
+</x-guest-layout>

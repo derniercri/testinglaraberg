@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <div class="post-edit">
         @slot('header')
             Editer le post
@@ -9,7 +9,6 @@
                 <p class="alert alert-danger">{{ $error }}</p>
             @endforeach
             <div class="post__gutenberg">
-                <input name="body" id="content" value="{{$post->body}}" hidden>
                 <div class="post__details">
                     <div class="post__details__title">
                         <label for="title">{{ __('post.title') }}</label>
@@ -44,6 +43,8 @@
                         </div>
                     @endif
                 </div>
+                <input name="body" id="content" value="{{$post->body}}" hidden>
+
                 <div class="post-edit__form__submit__container">
                     <input class="post-edit__form__submit" type="submit">
                 </div>

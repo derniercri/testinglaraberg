@@ -1,14 +1,11 @@
-<x-app-layout>
+<x-guest-layout>
+    <x-page-header header="create a post"></x-page-header>
+
     <div class="post-create">
-        @slot('header')
-            Créer un post
-        @endslot
+
         <form class="post-create__form" method="post" action="{{ route("posts.store") }}">
             @csrf
             <div class="post__gutenberg">
-                <input name="body" id="content" hidden>
-
-
                 <div class="post__details">
                     <div class="post__details__title">
                         <label for="title">{{ __('post.title') }}</label>
@@ -42,10 +39,13 @@
                         </div>
                     @endif
                 </div>
+                <input name="body" id="content" hidden>
+
+
                 <div class="post-create__form__submit__container">
                     <input class="post-create__form__submit" type="submit">
                 </div>
             </div>
         </form>
     </div>
-</x-app-layout>
+</x-guest-layout>

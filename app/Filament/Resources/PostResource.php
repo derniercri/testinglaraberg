@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -36,11 +37,15 @@ class PostResource extends Resource
                 Select::make('category')->options(Category::all()->pluck('title', 'id'))->required(),
                 Select::make('age')->options(Age::all()->pluck('title', 'id'))->required(),
                 TextInput::make('excerpt')->required(),
+                FileUpload::make('thumbnail')->required(),
+
                 Grid::make([
                     'default' => 1,
                 ])
                     ->schema([
-                        Gutenberg::make('body'),
+                        RichEditor::make('body')
+                            ->fileAttachmentsDirectory('photos')
+                            ->fileAttachmentsVisibility('private'),
                     ])
             ]);
     }

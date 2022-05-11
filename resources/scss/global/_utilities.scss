@@ -1,0 +1,41 @@
+b,
+strong {
+    font-weight: $font-weight-bold;
+}
+
+/************
+    TEXTES
+*************/
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-justify {
+    text-align: justify;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-bold {
+    font-weight: $font-weight-bold;
+}
+
+.text-content {
+    line-height: 2.8em;
+}
+
+
+/************
+    IMAGES
+*************/
+.img-max-100 {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
