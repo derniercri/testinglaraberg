@@ -1,7 +1,9 @@
 body, html {
-    //background: $color-black;
+    background: rgba($color-sand, 0.2);
 }
-
+main {
+    min-height: 100vh;
+}
 .main-title {
     font-size: 4.4rem;
     padding: 3rem;
