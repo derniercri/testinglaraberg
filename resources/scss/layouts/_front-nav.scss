@@ -3,10 +3,11 @@
     justify-content: space-between;
     background: $color-blue;
     align-items: center;
-
+    padding: 3rem;
     &__ul {
 
         display: flex;
+        align-items: center;
         gap: 2rem;
 
         padding: 1rem 2rem;
@@ -37,6 +38,12 @@
         input[type=submit] {
             background: transparent;
             border: none;
+            font-size: 1.5rem;
+            &:hover {
+                color: rgba($color-black, 0.5);
+                cursor: pointer;
+            }
         }
+
     }
 }

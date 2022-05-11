@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
-
+@livewireStyles
 </head>
 
 <body>
@@ -21,6 +21,7 @@
     </div>
 </main>
 
+@livewireScripts
 <script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
 <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
