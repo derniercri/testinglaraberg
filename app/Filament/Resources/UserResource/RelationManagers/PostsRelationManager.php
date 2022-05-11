@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\UserResource\RelationManagers;
 
+use App\Forms\Components\Gutenberg;
 use App\Models\Age;
 use App\Models\Category;
 use Filament\Forms;

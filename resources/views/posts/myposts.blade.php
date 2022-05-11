@@ -1,8 +1,10 @@
-<x-guest-layout>
+<x-app-layout>
     @slot('header')
-        liste des posts
+        <h1>
+            My Posts
+        </h1>
     @endslot
-    <div class="posts-index">
+    <div class="myforms">
         @foreach($posts as $post)
             <div class="post">
                 <h2>{{ $post->title }} - {{ $post->user->name}}</h2>
@@ -10,11 +12,8 @@
                 <div>
                     {!! $post->excerpt !!}
                 </div>
-
-                <a href="{{route('posts.show', ['post'=>$post])}}">En voir plus </a>
-
+                <a href="{{route('posts.edit', ['post'=>$post])}}">editer </a>
             </div>
         @endforeach
-
     </div>
-</x-guest-layout>
+</x-app-layout>

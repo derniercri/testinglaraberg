@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
+use App\Forms\Components\Gutenberg;
 use App\Models\Age;
 use App\Models\Category;
 use App\Models\Post;
@@ -39,7 +40,7 @@ class PostResource extends Resource
                     'default' => 1,
                 ])
                     ->schema([
-                        RichEditor::make('body')->required(),
+                        Gutenberg::make('body'),
                     ])
             ]);
     }
@@ -48,11 +49,14 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('user.name')->label('Auteur'),
+                Tables\Columns\TextColumn::make('title')->label('Titre')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('age.title'),
-                Tables\Columns\TextColumn::make('category.title')
+                Tables\Columns\TextColumn::make('age.title')->label('Âge')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('category.title')->label('Catégorie')
                     ->searchable()
                     ->sortable(),
 
