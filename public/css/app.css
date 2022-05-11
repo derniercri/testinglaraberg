@@ -1,3 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+[data-expand-target] {
+  position: relative;
+}
+
+[data-expand-link]:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/*-------------------------------------------------------------
+Colors
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Breakpoint
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Variables Communes
+--------------------------------------------------------------*/
+/*--- Font ---*/
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+/************
+    TEXTES
+*************/
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-content {
+  line-height: 2.8em;
+}
+
+/************
+    IMAGES
+*************/
+.img-max-100 {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  width: calc(100% - 4.2rem);
+  max-width: 144rem;
+  margin: 0 auto;
+}
+
+.main-title {
+  font-size: 4.4rem;
+  padding: 3rem;
+}
+
+.front-nav {
+  display: flex;
+  justify-content: space-between;
+  background: #09C0FA;
+  align-items: center;
+}
+.front-nav__ul {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+.front-nav__ul__item__link {
+  text-decoration: none;
+  color: #171C26;
+}
+.front-nav__ul__item__link:hover {
+  color: rgba(23, 28, 38, 0.5);
+}
+.front-nav__avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.front-nav__logout-form input[type=submit] {
+  background: transparent;
+  border: none;
+}
+
 .post-create__form__submit__container {
   display: flex;
   justify-content: flex-end;
@@ -11,9 +194,26 @@
   border-radius: 12px;
 }
 
+.post-edit__form__submit__container {
+  display: flex;
+  justify-content: flex-end;
+}
+.post-edit__form__submit {
+  margin: 10px 2rem;
+  background: #0d66c2;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+}
+
 .posts-index {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 2rem;
+}
+.container {
+  max-width: 1440px;
+  margin: auto;
 }

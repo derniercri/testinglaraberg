@@ -1,27 +1,6 @@
-.post-create {
-    &__form{
-
-        &__submit__container {
-            display: flex;
-            justify-content: flex-end;
-        }
-        &__submit{
-            margin: 10px 2rem;
-            background: #0d66c2;
-            color: #fff;
-            border: none;
-            padding: 8px;
-            border-radius: 12px;
-        }
-    }
+.container {
+    max-width: 1440px;
+    margin: auto;
 }
 
-.posts-index {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-gap: 2rem;
-    .post {
 
-    }
-}

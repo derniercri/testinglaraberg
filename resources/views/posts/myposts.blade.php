@@ -1,14 +1,11 @@
-<x-app-layout>
-    @slot('header')
-        <h1>
-            My Posts
-        </h1>
-    @endslot
+<x-guest-layout>
+    <x-page-header header="mes posts"></x-page-header>
+
     <div class="myforms">
         @foreach($posts as $post)
             <div class="post">
                 <h2>{{ $post->title }} - {{ $post->user->name}}</h2>
-                <img src="{{$post?->thumbnail ?? 'https://picsum.photos/350/150'}}" alt="">
+                <img src="{{$post?->thumbnail }}" alt="">
                 <div>
                     {!! $post->excerpt !!}
                 </div>
@@ -16,4 +13,4 @@
             </div>
         @endforeach
     </div>
-</x-app-layout>
+</x-guest-layout>
