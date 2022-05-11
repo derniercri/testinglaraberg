@@ -19,14 +19,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('/posts', PostController::class)->middleware('auth');
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::group(['prefix' => 'user','middleware' => [ 'auth', 'user']], function() {
+    Route::get('/myposts', [PostController::class, 'myposts'])->name('posts.myposts');
+    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts-store', [PostController::class, 'store'])->name('posts.store');
+    Route::post('/posts', [PostController::class, 'update'])->name('posts.update');
+});
 
 
 Route::post('post', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
 Route::post('post-update', [PostController::class, 'update'])->name('posts.update')->middleware
 ('auth');
-
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 

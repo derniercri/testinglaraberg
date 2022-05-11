@@ -18,9 +18,9 @@ class Post extends Model
     protected $fillable = [
         'title', 'body', 'excerpt', 'user_id', 'category_id', 'age_id',
     ];
-    protected $casts = [
-        'user' => 'array',
-    ];
+//    protected $casts = [
+//        'user' => 'array',
+//    ];
 
     public function user(): BelongsTo
     {

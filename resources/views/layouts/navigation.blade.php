@@ -16,6 +16,11 @@
                 {{ __('create a post') }}
             </a>
         </li>
+        <li>
+            <a href="{{ route('posts.myposts') }}">
+                {{ __('my posts') }}
+            </a>
+        </li>
     </ul>
 
     <p>

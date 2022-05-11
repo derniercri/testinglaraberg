@@ -49,11 +49,14 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('user.name')->label('Auteur'),
+                Tables\Columns\TextColumn::make('title')->label('Titre')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('age.title'),
-                Tables\Columns\TextColumn::make('category.title')
+                Tables\Columns\TextColumn::make('age.title')->label('Âge')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('category.title')->label('Catégorie')
                     ->searchable()
                     ->sortable(),
 

@@ -1,9 +1,9 @@
-<x-app-layout>
+<x-guest-layout>
     @slot('header')
     Un post
     @endslot
 
        {!! $post->body !!}
 
-        <a href="{{route('posts.edit', ['post'=>$post])}}">Editer le post</a>
-</x-app-layout>
+{{--        <a href="{{route('posts.edit', ['post'=>$post])}}">Editer le post</a>--}}
+</x-guest-layout>

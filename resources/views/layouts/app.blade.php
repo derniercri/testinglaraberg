@@ -16,6 +16,7 @@
 @include('layouts.navigation')
 
 <!-- Page Heading -->
+
 <h1>
     {{ $header }}
 </h1>

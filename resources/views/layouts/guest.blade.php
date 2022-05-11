@@ -11,6 +11,9 @@
     </head>
     <body>
     <main>
+        <nav>
+            un menu de navigation
+        </nav>
             {{ $slot }}
     </main>
     </body>
