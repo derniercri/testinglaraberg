@@ -1,50 +1,52 @@
 <x-guest-layout>
-    <x-page-header header="create a post"></x-page-header>
-
-    <div class="post-create">
-
-        <form class="post-create__form" method="post" action="{{ route("posts.store") }}">
+    <div class="post-edit">
+        <x-page-header header="Créer une nouvelle histoire"></x-page-header>
+        <form class="post-edit__form" method="post" action="{{ route("posts.store") }}">
             @csrf
-            <div class="post__gutenberg">
-                <div class="post__details">
-                    <div class="post__details__title">
-                        <label for="title">{{ __('post.title') }}</label>
-                        <input type="text" name="title">
-                    </div>
-                    <div class="post__details__excerpt">
-                        <label for="excerpt">{{ __('post.excerpt') }}</label>
-                        <input type="text" name="excerpt">
-                    </div>
-                    @if($categories != null && count($categories) > 0)
-                        <div class="post__details__category">
-                            <label for="category-select">category</label>
-                            <select name="category" id="category-select">
-                                <option value="">--Please choose an option--</option>
-                                @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    @endif
-                    @if($ages != null && count($ages) > 0)
-                        <div class="post__details__age">
-                            <label for="age-select">age</label>
-
-                            <select name="age" id="age-select">
-                                <option value="">--Please choose an option--</option>
-                                @foreach($ages as $age)
-                                    <option value="{{$age->id}}">{{$age->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-                <input name="body" id="content" hidden>
+            @endif
+            <div class="post-edit__form__submit__container">
+                <input class="post-edit__form__submit" type="submit">
+            </div>
 
+            <textarea name="body" id="content" hidden></textarea>
+            <div class="laraberg-sidebar">
+                <input id="article-title" type="text" name="title" placeholder="title" />
 
-                <div class="post-create__form__submit__container">
-                    <input class="post-create__form__submit" type="submit">
+                <textarea name="excerpt" id="article-excerpt" placeholder="Excerpt"></textarea>
+                <label for="published">Published</label>
+               <input type="checkbox" name="published" id="published" value="1" checked>
+
+                @if($ages != null && count($ages) > 0)
+                    <div class="post__details__age">
+                        <label for="age-select">age</label>
+
+                        <select name="age_id" id="age-select">
+                            <option value="!#">{{__("select.option")}}</option>
+                            @foreach($ages as $age)
+                                <option value="{{$age->id}}">{{$age->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
+                @if($categories != null && count($categories) > 0)
+                <div class="post__details__category">
+                    <label for="category-select">category</label>
+                    <select name="category_id" id="category-select">
+                        <option value="!#">{{__("select.option")}}</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
+                    </select>
                 </div>
+                @endif
             </div>
         </form>
     </div>

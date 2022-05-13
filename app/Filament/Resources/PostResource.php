@@ -43,9 +43,9 @@ class PostResource extends Resource
                     'default' => 1,
                 ])
                     ->schema([
-                        RichEditor::make('body')
-                            ->fileAttachmentsDirectory('photos')
-                            ->fileAttachmentsVisibility('private'),
+                        Gutenberg::make('body')
+//                            ->fileAttachmentsDirectory('photos')
+//                            ->fileAttachmentsVisibility('private'),
                     ])
             ]);
     }

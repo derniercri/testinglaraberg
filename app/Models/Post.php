@@ -4,23 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use VanOns\Laraberg\Models\Content;
 use VanOns\Laraberg\Models\Gutenbergable;
 
 class Post extends Model
 {
     use HasFactory;
-    use HasFactory;
-    use Gutenbergable;
+    use Gutenbergable ;
 
+//
+//
     protected $fillable = [
-        'title', 'body', 'excerpt', 'user_id', 'category_id', 'age_id','thumbnail',
+        'body','lb_content'
     ];
-//    protected $casts = [
-//        'user' => 'array',
-//    ];
 
     public function user(): BelongsTo
     {
@@ -41,4 +39,6 @@ class Post extends Model
     {
         return $this->hasMany(Tag::class);
     }
+
+
 }

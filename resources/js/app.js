@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./gutenberg');
 
 import Alpine from 'alpinejs';
 

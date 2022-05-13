@@ -24,6 +24,7 @@ class PostFactory extends Factory
             'user_id' => $this->faker->numberBetween(1, 10),
             'category_id' => $this->faker->numberBetween(1, 5),
             'age_id' => $this->faker->numberBetween(1, 5),
+            'published'=> $this->faker->boolean(),
             'created_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
         ];

@@ -231,3 +231,20 @@ main {
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 2rem;
 }
+.myforms__post {
+  border: 1px solid #171C26;
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: ease-in-out 0.5s;
+}
+.myforms__post:hover {
+  transition: ease-in-out 0.5s;
+  background: rgba(23, 28, 38, 0.1);
+}
+.myforms__post__published--red {
+  color: red;
+}
+.myforms__post__published--green {
+  color: green;
+}
