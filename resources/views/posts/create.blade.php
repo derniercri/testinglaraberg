@@ -18,20 +18,17 @@
 
             <textarea name="body" id="content" hidden></textarea>
             <div class="laraberg-sidebar">
-                <input id="article-title" type="text" name="title" />
+                <input id="article-title" type="text" name="title" placeholder="title" />
 
-                <textarea name="excerpt" id="article-excerpt"></textarea>
+                <textarea name="excerpt" id="article-excerpt" placeholder="Excerpt"></textarea>
                 <label for="published">Published</label>
-                <select id="published" name="published">
-                    <option value="0">Non</option>
-                    <option value="1">Oui</option>
-                </select>
+               <input type="checkbox" name="published" id="published" value="1" checked>
 
                 @if($ages != null && count($ages) > 0)
                     <div class="post__details__age">
                         <label for="age-select">age</label>
 
-                        <select name="age" id="age-select">
+                        <select name="age_id" id="age-select">
                             <option value="!#">{{__("select.option")}}</option>
                             @foreach($ages as $age)
                                 <option value="{{$age->id}}">{{$age->title}}</option>
@@ -39,10 +36,10 @@
                         </select>
                     </div>
                 @endif
-                @if($categories != null && count($categories) > 0)--}}
+                @if($categories != null && count($categories) > 0)
                 <div class="post__details__category">
                     <label for="category-select">category</label>
-                    <select name="category" id="category-select">
+                    <select name="category_id" id="category-select">
                         <option value="!#">{{__("select.option")}}</option>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->title}}</option>

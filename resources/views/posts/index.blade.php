@@ -22,5 +22,5 @@
         @endforeach
 
     </div>
-    {{ $posts->links('components.custom-pagination') }}
+{{--    {{ $posts->links('components.custom-pagination') }}--}}
 </x-guest-layout>

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Age;
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\Test;
-use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -14,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use VanOns\Laraberg\Models\Content;
 
 class PostController extends Controller
 {
@@ -24,9 +24,7 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        return view('posts.index', ['posts' => Post::orderBy('created_at', 'desc')
-            ->where('published', 1)
-            ->paginate(12)]);
+        return view('posts.index', ['posts' => Post::all()]);
     }
 
     /**
@@ -63,19 +61,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $content = $request->body;
+        $model = new Post();
 
-        Post::create(
-            [
-                'body' => $request->body,
-                'title' => $request->title,
-                'excerpt' => $request->excerpt,
-                'category_id' => $request->category,
-                'age_id' => $request->age,
-                'user_id' => Auth::id(),
-            ]
-        );
-        return redirect()->route('posts.index');
+        $model->lb_content = $content;
+        $model->user_id = Auth::user()->id;
+        $model->excerpt = $request->excerpt;
+        $model->title = $request->title;
+        $model->category_id = $request->category_id;
+        $model->age_id = $request->age_id;
+        $model->published = $request->published;
+
+        $model->save();
+        return redirect()->route('posts.myposts');
     }
+
 
     /**
      * Display the specified resource.
@@ -108,18 +108,16 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        dd($request->all());
-        $post->update(
-            [
-                'body' => $request->body,
-                'title' => $request->title,
-                'excerpt' => $request->excerpt,
-                'category_id' => $request->category,
-                'age_id' => $request->age,
-                'user_id' => Auth::id(),
-            ]
-        );
-        return redirect()->route('posts.index');
+//        dd($request);
+        $post->lb_content = $request->body;
+//        $post->excerpt = $request->excerpt;
+//        $post->title = $request->title;
+//        $post->category_id = $request->category_id;
+//        $post->age_id = $request->age_id;
+//        $post->published = $request->published;
+
+        $post->update();
+        return redirect()->route('posts.myposts');
     }
 
 

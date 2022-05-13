@@ -1,9 +1,7 @@
 <x-guest-layout>
-    @slot('header')
-    Un post
-    @endslot
+    <x-page-header header="{{ $post->title }}"></x-page-header>
 
-       {!! $post->body !!}
+       {!! $post->lb_content !!}
 
-{{--        <a href="{{route('posts.edit', ['post'=>$post])}}">Editer le post</a>--}}
+        <a href="{{route('posts.edit', ['post'=>$post])}}">Editer le post</a>
 </x-guest-layout>
