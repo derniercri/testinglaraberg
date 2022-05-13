@@ -8,8 +8,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
-@livewireStyles
+    @livewireStyles
 </head>
 
 <body>
@@ -22,17 +21,10 @@
 </main>
 
 @livewireScripts
-<script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
-<link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
-<script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
 
-<script>Laraberg.init('content',
 
-        {
-            maxHeight: 250,
-            laravelFilemanager: true,
-            sidebar: true
-        })</script>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
 </body>
 </html>

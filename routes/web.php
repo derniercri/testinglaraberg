@@ -38,7 +38,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function ()
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts-store', [PostController::class, 'store'])->name('posts.store');
-    Route::post('/posts', [PostController::class, 'update'])->name('posts.update');
+    Route::post('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
 
     Route::get('/myaccount', [UserController::class, 'myaccount'])->name('user.myaccount');
     Route::post('/myaccount', [UserController::class, 'update'])->name('user.update');

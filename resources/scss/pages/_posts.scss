@@ -1,11 +1,12 @@
 .post-create {
-    &__form{
+    &__form {
 
         &__submit__container {
             display: flex;
             justify-content: flex-end;
         }
-        &__submit{
+
+        &__submit {
             margin: 10px 2rem;
             background: #0d66c2;
             color: #fff;
@@ -17,13 +18,14 @@
 }
 
 .post-edit {
-    &__form{
+    &__form {
 
         &__submit__container {
             display: flex;
             justify-content: flex-end;
         }
-        &__submit{
+
+        &__submit {
             margin: 10px 2rem;
             background: #0d66c2;
             color: #fff;
@@ -39,7 +41,34 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 2rem;
+
     .post {
 
     }
+}
+
+.myforms {
+    &__post {
+        border: 1px solid $color-black;
+        background: $color-white;
+        padding: 2rem;
+        border-radius: 1rem;
+        transition: ease-in-out 0.5s;
+
+        &:hover {
+            transition: ease-in-out 0.5s;
+            background: rgba($color-black, 0.1);
+        }
+
+        &__published {
+            &--red {
+                color: red;
+            }
+
+            &--green {
+                color: green;
+            }
+        }
+    }
+
 }

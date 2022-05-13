@@ -25,6 +25,7 @@ class PostController extends Controller
     public function index(): View
     {
         return view('posts.index', ['posts' => Post::orderBy('created_at', 'desc')
+            ->where('published', 1)
             ->paginate(12)]);
     }
 
@@ -107,17 +108,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $request->validate([
-            'body' => 'required',
-        ]);
-
-        $post->body = $request->input('body');
-//        $student->email = $request->input('email');
-//        $student->course = $request->input('course');
-//        $student->section = $request->input('section');
-        $post->update();
-
-        return redirect()->route('posts.myposts');
+        dd($request->all());
+        $post->update(
+            [
+                'body' => $request->body,
+                'title' => $request->title,
+                'excerpt' => $request->excerpt,
+                'category_id' => $request->category,
+                'age_id' => $request->age,
+                'user_id' => Auth::id(),
+            ]
+        );
+        return redirect()->route('posts.index');
     }
 
 
