@@ -1,8 +1,10 @@
 <x-guest-layout>
     <div class="post-edit">
         <x-page-header header="Créer une nouvelle histoire"></x-page-header>
-        <form class="post-edit__form" method="post" action="{{ route("posts.update") }}">
+        <form class="post-edit__form" method="post" action="{{ route("posts.update", ['post' => $post]) }}">
+            @method('PUT')
             @csrf
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>

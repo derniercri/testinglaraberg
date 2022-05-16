@@ -16,7 +16,7 @@
                 <input class="post-edit__form__submit" type="submit">
             </div>
 
-            <textarea name="body" id="content" hidden></textarea>
+            <textarea name="body" id="content" hidden placeholder="Ecrire ici "></textarea>
             <div class="laraberg-sidebar">
                 <input id="article-title" type="text" name="title" placeholder="title" />
 
@@ -29,7 +29,7 @@
                         <label for="age-select">age</label>
 
                         <select name="age_id" id="age-select">
-                            <option value="!#">{{__("select.option")}}</option>
+                            <option value="1">{{__("select.option")}}</option>
                             @foreach($ages as $age)
                                 <option value="{{$age->id}}">{{$age->title}}</option>
                             @endforeach
@@ -40,7 +40,7 @@
                 <div class="post__details__category">
                     <label for="category-select">category</label>
                     <select name="category_id" id="category-select">
-                        <option value="!#">{{__("select.option")}}</option>
+                        <option value="1">{{__("select.option")}}</option>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->title}}</option>
                         @endforeach
