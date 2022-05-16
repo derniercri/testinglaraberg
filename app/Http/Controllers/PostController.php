@@ -60,7 +60,7 @@ class PostController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         $content = $request->body;
         $post = new Post();
@@ -107,16 +107,14 @@ class PostController extends Controller
      * @param int $id
      * @return RedirectResponse
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
-        $post->lb_content  = $request->body;
+        $post->lb_content = $request->body;
         $post->excerpt = $request->excerpt;
         $post->title = $request->title;
         $post->category_id = $request->category_id;
         $post->age_id = $request->age_id;
         $post->published = $request->published;
-
-        dd($post);
         $post->update();
         return redirect()->route('posts.myposts');
     }

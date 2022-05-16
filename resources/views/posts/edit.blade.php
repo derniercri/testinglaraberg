@@ -1,8 +1,10 @@
 <x-guest-layout>
     <div class="post-edit">
         <x-page-header header="Créer une nouvelle histoire"></x-page-header>
-        <form class="post-edit__form" method="post" action="{{ route("posts.update") }}">
+        <form class="post-edit__form" method="post" action="{{ route("posts.update", ['post' => $post]) }}">
+            @method('PUT')
             @csrf
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -22,7 +24,12 @@
 
                 <textarea name="excerpt" id="article-excerpt" placeholder="Excerpt">{{ $post->excerpt }}</textarea>
                 <label for="published">Published</label>
-                <input type="checkbox" name="published" id="published" value="1" checked>
+                <select name="published" id="article-is-published">
+
+                    <option value="1" {{ $post->published ? '' : 'selected' }}>Publié</option>
+                    <option value="0" {{ ($post->published === 0) ? 'selected' : ''}}>Non publié</option>
+                </select>
+
 
                 @if($ages != null && count($ages) > 0)
                     <div class="post__details__age">

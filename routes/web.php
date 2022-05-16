@@ -33,11 +33,14 @@ Route::get('/ages', [AgeController::class, 'index'])->name('ages.index');
 
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function () {
+//    Route::resource('/posts', PostController::class);
     Route::get('/myposts', [PostController::class, 'myposts'])->name('posts.myposts');
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts-store', [PostController::class, 'store'])->name('posts.store');
-    Route::post('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
+//    problème de route générée par laraberg
+//    /post-update?post=94 au lieu de /posts/94/update
+    Route::put('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
     Route::get('/myaccount', [UserController::class, 'myaccount'])->name('user.myaccount');
@@ -45,9 +48,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function ()
 });
 
 
-Route::post('post', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
-Route::post('post-update', [PostController::class, 'update'])->name('posts.update')->middleware
-('auth');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

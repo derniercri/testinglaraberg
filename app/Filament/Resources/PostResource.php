@@ -37,13 +37,13 @@ class PostResource extends Resource
                 Select::make('category')->options(Category::all()->pluck('title', 'id'))->required(),
                 Select::make('age')->options(Age::all()->pluck('title', 'id'))->required(),
                 TextInput::make('excerpt')->required(),
-                FileUpload::make('thumbnail')->required(),
+                FileUpload::make('thumbnail'),
 
                 Grid::make([
                     'default' => 1,
                 ])
                     ->schema([
-                        Gutenberg::make('body')
+                        Gutenberg::make('body')->required(),
 //                            ->fileAttachmentsDirectory('photos')
 //                            ->fileAttachmentsVisibility('private'),
                     ])
