@@ -5214,6 +5214,18 @@ Laraberg.init('content', {
   sidebar: true,
   laravelFilemanager: true
 });
+var myBlock = {
+  title: 'My First Block!',
+  icon: 'universal-access-alt',
+  category: 'my-category',
+  edit: function edit() {
+    return "<h1>Hello editor.</h1>";
+  },
+  save: function save() {
+    return "<h1>Hello saved content.</h1>";
+  }
+};
+Laraberg.registerBlock('testing_laraberg', myBlock);
 
 /***/ }),
 

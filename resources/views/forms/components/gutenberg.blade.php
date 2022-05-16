@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
 
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
-        <textarea  id="content" hidden></textarea>
+        <textarea  id="content" hidden :ignore></textarea>
     </div>
 
 
