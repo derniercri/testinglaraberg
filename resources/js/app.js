@@ -1,5 +1,6 @@
 require('./bootstrap');
 require('./gutenberg');
+require('./deleteModal');
 
 import Alpine from 'alpinejs';
 

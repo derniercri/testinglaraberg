@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Age;
 use App\Models\Category;
 use App\Models\Post;
@@ -62,17 +63,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $content = $request->body;
-        $model = new Post();
+        $post = new Post();
 
-        $model->lb_content = $content;
-        $model->user_id = Auth::user()->id;
-        $model->excerpt = $request->excerpt;
-        $model->title = $request->title;
-        $model->category_id = $request->category_id;
-        $model->age_id = $request->age_id;
-        $model->published = $request->published;
+        $post->lb_content = $content;
+        $post->user_id = Auth::user()->id;
+        $post->excerpt = $request->excerpt;
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->age_id = $request->age_id;
+        $post->published = $request->published;
 
-        $model->save();
+        $post->save();
         return redirect()->route('posts.myposts');
     }
 
@@ -106,16 +107,16 @@ class PostController extends Controller
      * @param int $id
      * @return RedirectResponse
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-//        dd($request);
-        $post->lb_content = $request->body;
-//        $post->excerpt = $request->excerpt;
-//        $post->title = $request->title;
-//        $post->category_id = $request->category_id;
-//        $post->age_id = $request->age_id;
-//        $post->published = $request->published;
+        $post->lb_content  = $request->body;
+        $post->excerpt = $request->excerpt;
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->age_id = $request->age_id;
+        $post->published = $request->published;
 
+        dd($post);
         $post->update();
         return redirect()->route('posts.myposts');
     }
@@ -125,10 +126,11 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('posts.myposts');
     }
 }

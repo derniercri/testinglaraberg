@@ -32,13 +32,13 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::get('/ages', [AgeController::class, 'index'])->name('ages.index');
 
 
-
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function () {
     Route::get('/myposts', [PostController::class, 'myposts'])->name('posts.myposts');
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts-store', [PostController::class, 'store'])->name('posts.store');
-    Route::post('/posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
+    Route::post('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
     Route::get('/myaccount', [UserController::class, 'myaccount'])->name('user.myaccount');
     Route::post('/myaccount', [UserController::class, 'update'])->name('user.update');
@@ -51,7 +51,6 @@ Route::post('post-update', [PostController::class, 'update'])->name('posts.updat
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
 
 
 require __DIR__ . '/auth.php';

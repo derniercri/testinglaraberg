@@ -5146,6 +5146,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./gutenberg */ "./resources/js/gutenberg.js");
 
+__webpack_require__(/*! ./deleteModal */ "./resources/js/deleteModal.js");
+
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -5180,6 +5182,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/deleteModal.js":
+/*!*************************************!*\
+  !*** ./resources/js/deleteModal.js ***!
+  \*************************************/
+/***/ (() => {
+
+function showModal() {
+  var button = document.getElementById('deleteModal');
+  console.log(button);
+}
 
 /***/ }),
 
