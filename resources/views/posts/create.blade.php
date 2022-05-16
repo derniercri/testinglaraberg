@@ -22,14 +22,15 @@
 
                 <textarea name="excerpt" id="article-excerpt" placeholder="Excerpt"></textarea>
                 <label for="published">Published</label>
-                <input type="checkbox" name="published" id="published"/>
-
+                <select name="published" id="article-is-published">
+                    <option value="1" >Publié</option>
+                    <option value="0" >Non publié</option>
+                </select>
                 @if($ages != null && count($ages) > 0)
                     <div class="post__details__age">
                         <label for="age-select">age</label>
 
                         <select name="age_id" id="age-select">
-                            <option value="1">{{__("select.option")}}</option>
                             @foreach($ages as $age)
                                 <option value="{{$age->id}}">{{$age->title}}</option>
                             @endforeach
@@ -40,7 +41,6 @@
                 <div class="post__details__category">
                     <label for="category-select">category</label>
                     <select name="category_id" id="category-select">
-                        <option value="1">{{__("select.option")}}</option>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->title}}</option>
                         @endforeach
