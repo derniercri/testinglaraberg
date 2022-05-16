@@ -47,10 +47,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function ()
     Route::post('/myaccount', [UserController::class, 'update'])->name('user.update');
 });
 
+//Route::post('post', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
+//Route::post('post-update', [PostController::class, 'update'])->name('posts.update')->middleware('auth');
 
-Route::post('post', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
-Route::post('post-update', [PostController::class, 'update'])->name('posts.update')->middleware
-('auth');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -109,7 +109,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        dd($post);
+//        dd($post);
         $post->lb_content  = $request->body;
         $post->excerpt = $request->excerpt;
         $post->title = $request->title;
