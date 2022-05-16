@@ -22,7 +22,7 @@
 
                 <textarea name="excerpt" id="article-excerpt" placeholder="Excerpt"></textarea>
                 <label for="published">Published</label>
-               <input type="checkbox" name="published" id="published" value="1" checked>
+                <input type="checkbox" name="published" id="published"/>
 
                 @if($ages != null && count($ages) > 0)
                     <div class="post__details__age">

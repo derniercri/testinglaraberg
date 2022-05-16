@@ -109,14 +109,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        dd($post);
-        $post->lb_content  = $request->body;
+        $post->lb_content = $request->body;
         $post->excerpt = $request->excerpt;
         $post->title = $request->title;
         $post->category_id = $request->category_id;
         $post->age_id = $request->age_id;
         $post->published = $request->published;
-
         $post->update();
         return redirect()->route('posts.myposts');
     }

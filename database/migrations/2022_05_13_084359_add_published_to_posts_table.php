@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->boolean('published')->default(false);
+            $table->boolean('published')->nullable()->default(false);
         });
     }
 
