@@ -60,3 +60,7 @@ Route::group(['prefix' => 'laraberg', 'middleware' => ['web', 'auth']], function
     Route::apiResource('blocks', BlockController::class);
     Route::get('oembed', OEmbedController::class);
 });
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
