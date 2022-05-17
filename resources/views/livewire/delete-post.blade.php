@@ -1,8 +1,6 @@
 <div>
     <div>
-        <x-page-header header="{{ $post->title }}"></x-page-header>
-        {!! $post->lb_content !!}
-        <a href="{{route('posts.edit', ['post'=>$post])}}">Editer le post</a>
+            <a href="{{route('posts.edit', ['post'=>$post])}}">Editer le post</a>
         <button wire:click="doShow">effacer le post </button>
     </div>
     <div class="modal fade @if($show === true) show @endif"

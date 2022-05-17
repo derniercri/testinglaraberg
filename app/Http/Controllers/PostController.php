@@ -97,7 +97,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', ['post' => $post, 'categories' => Category::all(), 'ages' => Age::all()]);
+        if (Auth::user()->id == $post->user_id) {
+            return view('posts.edit', ['post' => $post, 'categories' => Category::all(), 'ages' => Age::all()]);
+        } else {
+            return redirect()->route('posts.index');
+        }
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use VanOns\Laraberg\Models\Gutenbergable;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,8 +20,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         Post::factory(50)->create();
-         User::factory(10)->create();
+        Post::factory(50)->create();
+        User::factory(10)->create();
 
 
 //        1 admin
@@ -48,18 +49,24 @@ class DatabaseSeeder extends Seeder
         Age::insert([
             [
                 'title' => 'Babies',
+                'slug' => 'Histoires pour les bébés',
             ],
             [
                 'title' => 'young-children',
+                'slug' => 'Histoires pour les jeunes enfants',
             ],
             [
                 'title' => 'children',
+                'slug' => 'Histoires pour les  enfants plus grands',
             ],
             [
                 'title' => 'pre-teen',
+                'slug' => 'Histoires pour les pré-adolescents',
+
             ],
             [
                 'title' => 'teenager',
+                'slug' => 'Histoires pour les adolescents',
             ],
         ]);
 
@@ -67,18 +74,23 @@ class DatabaseSeeder extends Seeder
         Category::insert([
             [
                 'title' => 'super-heroes',
+                'slug' => 'histoires de super-héros',
             ],
             [
                 'title' => 'princess-and-dragons',
+                'slug' => 'histoires de princesse et de dragon',
             ],
             [
                 'title' => 'cute-animals',
+                'slug' => 'histoires d\'animaux mignons',
             ],
             [
                 'title' => 'real-stories',
+                'slug' => 'histoires réelles',
             ],
             [
                 'title' => 'nature-and-animals',
+                'slug' => 'histoires de nature et d\'animaux',
             ],
         ]);
     }
