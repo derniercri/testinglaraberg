@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use VanOns\Laraberg\Models\Gutenbergable;
 
 class DatabaseSeeder extends Seeder
 {

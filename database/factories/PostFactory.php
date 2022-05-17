@@ -21,7 +21,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->text('20'),
 //            TODO trouver coment faire un seed relationnel vers lb_content
-            'body' => $this->faker->sentence('200'),
+            'lb_content' => $this->faker->sentence('200'),
             'excerpt' => $this->faker->realText('144'),
             'user_id' => $this->faker->numberBetween(1, 10),
             'category_id' => $this->faker->numberBetween(1, 5),
