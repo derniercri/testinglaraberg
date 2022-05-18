@@ -8,14 +8,11 @@
     :required="$isRequired()"
     :state-path="$getStatePath()"
 >
-{{--    <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
 
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
-        <textarea  id="content" hidden></textarea>
+        <textarea  id="body" name="lb_content"></textarea>
     </div>
-
-
-
 
     <script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
@@ -24,7 +21,7 @@
     <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
 
     <script>
-        Laraberg.init('content',
+        Laraberg.init('body',
             {
                 maxHeight: 250,
                 laravelFilemanager: true,

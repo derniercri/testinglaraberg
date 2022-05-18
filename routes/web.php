@@ -34,7 +34,6 @@ Route::get('/ages', [AgeController::class, 'index'])->name('ages.index');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function () {
 //    Route::resource('/posts', PostController::class);
-    Route::get('/myposts', [PostController::class, 'myposts'])->name('posts.myposts');
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts-store', [PostController::class, 'store'])->name('posts.store');
@@ -43,8 +42,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function ()
     Route::put('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
+    Route::get('/myposts', [PostController::class, 'myposts'])->name('posts.myposts');
     Route::get('/myaccount', [UserController::class, 'myaccount'])->name('user.myaccount');
-    Route::post('/myaccount', [UserController::class, 'update'])->name('user.update');
+    Route::get('/myaccount/edit', [UserController::class, 'edit'])->name('user.myaccount-edit');
+    Route::post('/myaccount', [UserController::class, 'update'])->name('user.myaccount-update');
 });
 
 
