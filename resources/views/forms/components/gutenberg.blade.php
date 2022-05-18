@@ -8,10 +8,10 @@
     :required="$isRequired()"
     :state-path="$getStatePath()"
 >
-    <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">--}}
 
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
-        <textarea  id="content" hidden :ignore></textarea>
+        <textarea  id="content" hidden></textarea>
     </div>
 
 

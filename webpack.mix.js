@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 
-mix.js('resources/js/app.js', 'public/js').sass('resources/scss/app.scss', 'public/css/app.css');
+mix.js('resources/js/app.js', 'public/js').sass('resources/scss/app.scss', 'public/css/app.css').react();
 
 // mix.browserSync({
 //     proxy:'http://laraberg.test'
