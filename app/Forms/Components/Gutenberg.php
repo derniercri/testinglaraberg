@@ -7,5 +7,7 @@ use Filament\Forms\Components\Field;
 
 class Gutenberg extends Field
 {
+
+
     protected string $view = 'forms.components.gutenberg';
 }
