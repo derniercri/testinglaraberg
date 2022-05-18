@@ -13,11 +13,18 @@
         @else
             no avatar
         @endif
+
     </div>
+
+    <div>
+        <a href="{{route('user.myaccount-edit')}}">editer mon compte</a>
+    </div>
+
 @if($posts)
-        liste des histoires : {{$posts->count()}} histoires
+        liste de mes histoires ({{$posts->count()}} histoires) :
         <ol>@foreach($posts as $post)
-                <li style="list-style-type: num; margin-left: 2rem;">{{$post->title}}</li>
+                <li style="list-style-type: num; margin-left: 2rem;"><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></li>
+
             @endforeach
         </ol>
     @endif

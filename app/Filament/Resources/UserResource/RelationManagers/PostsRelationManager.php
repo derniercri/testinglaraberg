@@ -5,7 +5,9 @@ namespace App\Filament\Resources\UserResource\RelationManagers;
 use App\Forms\Components\Gutenberg;
 use App\Models\Age;
 use App\Models\Category;
+use App\Models\Post;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -14,6 +16,7 @@ use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\HasManyRelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
+use PhpParser\Node\Expr\Closure;
 
 class PostsRelationManager extends HasManyRelationManager
 {
@@ -21,19 +24,27 @@ class PostsRelationManager extends HasManyRelationManager
 
     protected static ?string $recordTitleAttribute = 'title';
 
+//    protected function getTableRecordUrlUsing(): \Closure
+//    {
+//        return fn (Post $record): string => route('filament.resources.posts.edit', ['record' => $record]);
+//    }
+
+
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('title')->required(),
-                Select::make('category')->options(Category::all()->pluck('title', 'id'))->required(),
-                Select::make('age')->options(Age::all()->pluck('title', 'id'))->required(),
+                Select::make('category_id')->options(Category::all()->pluck('title', 'id'))->required(),
+                Select::make('age_id')->options(Age::all()->pluck('title', 'id'))->required(),
+                FileUpload::make('thumbnail'),
                 TextInput::make('excerpt')->required(),
                 Grid::make([
                     'default' => 1,
                 ])
                     ->schema([
-                        RichEditor::make('body')->required(),
+                        RichEditor::make('lb_content')->required(),
                     ])
             ]);
     }
@@ -45,7 +56,6 @@ class PostsRelationManager extends HasManyRelationManager
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('excerpt')
             ])
             ->filters([
                 //

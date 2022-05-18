@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
 use App\Forms\Components\Gutenberg;
 use App\Models\Age;
 use App\Models\Category;
@@ -28,7 +27,7 @@ class PostResource extends Resource
     protected static ?string $navigationIcon = 'story-pic';
 
     protected static ?int $navigationSort = 1;
-    protected static ?string $navigationLabel = ('Les histoires');
+    protected static ?string $navigationLabel = 'Les histoires';
 
     public static function form(Form $form): Form
     {
@@ -38,14 +37,8 @@ class PostResource extends Resource
                 Select::make('category_id')->options(Category::all()->pluck('title', 'id'))->required(),
                 Select::make('age_id')->options(Age::all()->pluck('title', 'id'))->required(),
                 TextInput::make('excerpt')->required(),
-                FileUpload::make('thumbnail'),
+                TextInput::make('lb_content')->required(),
 
-                Grid::make([
-                    'default' => 1,
-                ])
-                    ->schema([
-                        RichEditor::make('lb_content')->required(),
-                    ])
             ]);
     }
 
@@ -53,19 +46,18 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-//                Tables\Columns\TextColumn::make('user.name')->label('Auteur'),
-//                Tables\Columns\TextColumn::make('title')->label('Titre')
-//                    ->searchable()
-//                    ->sortable(),
-//                Tables\Columns\TextColumn::make('age.title')->label('Âge')
-//                    ->searchable()
-//                    ->sortable(),
-//                Tables\Columns\TextColumn::make('category.title')->label('Catégorie')
-//                    ->searchable()
-//                    ->sortable(),
-                Tables\Columns\TextColumn::make('lb_raw_content')
+                Tables\Columns\TextColumn::make('user.name')->label('Auteur'),
+                Tables\Columns\TextColumn::make('title')->label('Titre')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('age.title')->label('Âge')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('category.title')->label('Catégorie')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('lb_raw_content')->label('Contenu')
                     ->searchable(),
-
 
 
             ])
