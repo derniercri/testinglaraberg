@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
@@ -59,4 +59,8 @@ require __DIR__ . '/auth.php';
 Route::group(['prefix' => 'laraberg', 'middleware' => ['web', 'auth']], function () {
     Route::apiResource('blocks', BlockController::class);
     Route::get('oembed', OEmbedController::class);
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

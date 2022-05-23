@@ -8,10 +8,16 @@
     :required="$isRequired()"
     :state-path="$getStatePath()"
 >
+
+
     <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
 
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
+<<<<<<< Updated upstream
         <textarea  id="content" hidden :ignore></textarea>
+=======
+        <textarea  id="body" name="lb_content" ></textarea>
+>>>>>>> Stashed changes
     </div>
 
 
@@ -22,7 +28,12 @@
 
     <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
     <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
+    <script>
 
+
+
+
+    </script>
     <script>
         Laraberg.init('content',
             {

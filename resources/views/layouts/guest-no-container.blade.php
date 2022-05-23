@@ -17,7 +17,7 @@
 <main>
     <x-front-nav></x-front-nav>
 
-    <div class="lg:mt-64 container mx-auto">
+    <div>
         {{ $slot }}
     </div>
 </main>

@@ -5,7 +5,9 @@
             <p>{!!  $post->lb_content !!}</p>
         </div>
     </div>
-    @if(Auth::user()->id == $post->user_id)
-        @livewire('delete-post', ['post' => $post])
+    @auth()
+        @if(Auth::user()->id == $post->user_id)
+            @livewire('delete-post', ['post' => $post])
+        @endif
     @endauth
 </x-guest-layout>

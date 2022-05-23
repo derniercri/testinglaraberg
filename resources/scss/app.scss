@@ -2,15 +2,19 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import "helpers/helpers";
-@import "base/base";
-@import "global/utilities";
-@import "global/container";
-@import "global/main";
 
-@import "layouts/front-nav";
-
-@import "pages/posts";
-
-
-@import "temporary";
+.backdrop {
+    backdrop-filter: blur(2px);
+}
+//@import "helpers/helpers";
+//@import "base/base";
+//@import "global/utilities";
+//@import "global/container";
+//@import "global/main";
+//
+//@import "layouts/front-nav";
+//
+//@import "pages/posts";
+//
+//
+//@import "temporary";

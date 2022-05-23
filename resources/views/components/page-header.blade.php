@@ -1,3 +1,3 @@
-<div class="page-header-cmpnt">
-    <h1 class="main-title page-header-cmpnt__title">{{ $header }}</h1>
+<div class="mb-12">
+    <h1 class="text-5xl">{{ $header }}</h1>
 </div>
