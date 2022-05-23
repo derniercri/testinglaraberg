@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-page-header header="Liste des posts"></x-page-header>
+    <x-page-header header="Liste des posts" ></x-page-header>
     <div class="posts-index">
         @foreach($posts as $post)
             <div class="post">

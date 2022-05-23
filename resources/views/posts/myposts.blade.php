@@ -4,6 +4,8 @@
     <div class="myforms grid-cols-3">
 
         @foreach($posts as $post)
+
+            {{ $post->getLbRawContentAttribute() }}
             <div class="myforms__post" data-expand-target>
                 <p class="myforms__post__published--{{ $post->published ? 'green' : 'red' }}">{{ $post->published
             ? 'Publié' : 'Non
