@@ -5219,10 +5219,14 @@ Laraberg.init('content', {
   sidebar: true,
   laravelFilemanager: true
 });
+var title = 'my-custom-blocks';
+var slug = 'my-custom-blocks';
+Laraberg.registerCategory(title, slug); //first test custom block
+
 var myBlock = {
   title: 'My First Block!',
   icon: 'universal-access-alt',
-  category: 'my-category',
+  category: 'my-custom-blocks',
   edit: function edit() {
     return "<h1>Hello editor.</h1>";
   },
@@ -5230,7 +5234,7 @@ var myBlock = {
     return "<h1>Hello saved content.</h1>";
   }
 };
-Laraberg.registerBlock('testing_laraberg', myBlock);
+Laraberg.registerBlock('testing-laraberg/myblock', myBlock);
 
 /***/ }),
 

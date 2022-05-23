@@ -3,12 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
 use App\Forms\Components\Gutenberg;
 use App\Models\Age;
 use App\Models\Category;
 use App\Models\Post;
 use Filament\Forms;
+use Filament\Forms\Components\BelongsToSelect;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
@@ -27,26 +27,18 @@ class PostResource extends Resource
     protected static ?string $navigationIcon = 'story-pic';
 
     protected static ?int $navigationSort = 1;
-    protected static ?string $navigationLabel = ('Les histoires') ;
+    protected static ?string $navigationLabel = 'Les histoires';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('title')->required(),
-                Select::make('category')->options(Category::all()->pluck('title', 'id'))->required(),
-                Select::make('age')->options(Age::all()->pluck('title', 'id'))->required(),
+                Select::make('category_id')->options(Category::all()->pluck('title', 'id'))->required(),
+                Select::make('age_id')->options(Age::all()->pluck('title', 'id'))->required(),
                 TextInput::make('excerpt')->required(),
-                FileUpload::make('thumbnail'),
+                TextInput::make('lb_content')->required(),
 
-                Grid::make([
-                    'default' => 1,
-                ])
-                    ->schema([
-                        Gutenberg::make('body')->required(),
-//                            ->fileAttachmentsDirectory('photos')
-//                            ->fileAttachmentsVisibility('private'),
-                    ])
             ]);
     }
 
@@ -64,6 +56,8 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('category.title')->label('Catégorie')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('lb_raw_content')->label('Contenu')
+                    ->searchable(),
 
 
             ])

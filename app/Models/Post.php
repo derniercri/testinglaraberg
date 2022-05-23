@@ -12,13 +12,14 @@ use VanOns\Laraberg\Models\Gutenbergable;
 class Post extends Model
 {
     use HasFactory;
-    use Gutenbergable ;
+    use Gutenbergable;
 
 //
 //
     protected $fillable = [
-        'body','lb_content'
+        'body', 'lb_content', 'lb_raw_content', 'title','excerpt','thumbnail'
     ];
+
 
     public function user(): BelongsTo
     {
@@ -39,6 +40,5 @@ class Post extends Model
     {
         return $this->hasMany(Tag::class);
     }
-
 
 }

@@ -8,34 +8,20 @@
     :required="$isRequired()"
     :state-path="$getStatePath()"
 >
-
-
     <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
 
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
-<<<<<<< Updated upstream
-        <textarea  id="content" hidden :ignore></textarea>
-=======
-        <textarea  id="body" name="lb_content" ></textarea>
->>>>>>> Stashed changes
+        <textarea  id="body" name="lb_content"></textarea>
     </div>
-
-
-
 
     <script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
 
     <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
     <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
+
     <script>
-
-
-
-
-    </script>
-    <script>
-        Laraberg.init('content',
+        Laraberg.init('body',
             {
                 maxHeight: 250,
                 laravelFilemanager: true,

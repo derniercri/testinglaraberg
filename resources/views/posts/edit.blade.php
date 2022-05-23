@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="post-edit">
-        <x-page-header header="Créer une nouvelle histoire"></x-page-header>
+        <x-page-header header="{{ $post->title }}"></x-page-header>
         <form class="post-edit__form" method="post" action="{{ route("posts.update", ['post' => $post]) }}">
             @method('PUT')
             @csrf

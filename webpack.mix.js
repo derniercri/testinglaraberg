@@ -1,7 +1,4 @@
 const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss'); /* Add this line at the top */
-
-const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,6 +10,7 @@ const LiveReloadPlugin = require('webpack-livereload-plugin');
  | file for the application as well as bundling up all the JS files.
  |
  */
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 
 
