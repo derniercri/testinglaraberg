@@ -27,6 +27,7 @@ class StorePostRequest extends FormRequest
             'body' => 'required',
             'title' => 'required',
             'excerpt' => 'required',
+            'lb_content' => 'required',
             'category_id' => 'required',
             'age_id' => 'required',
             'published' => 'boolean',

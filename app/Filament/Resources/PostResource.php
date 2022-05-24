@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Forms\Components\Gutenberg;
+use App\Forms\Components\GutField;
 use App\Models\Age;
 use App\Models\Category;
 use App\Models\Post;
@@ -27,7 +28,7 @@ class PostResource extends Resource
     protected static ?string $navigationIcon = 'story-pic';
 
     protected static ?int $navigationSort = 1;
-    protected static ?string $navigationLabel = ('Les histoires') ;
+    protected static ?string $navigationLabel = ('Les histoires');
 
     public static function form(Form $form): Form
     {
@@ -37,15 +38,16 @@ class PostResource extends Resource
                 Select::make('category')->options(Category::all()->pluck('title', 'id'))->required(),
                 Select::make('age')->options(Age::all()->pluck('title', 'id'))->required(),
                 TextInput::make('excerpt')->required(),
-                FileUpload::make('thumbnail'),
+//                FileUpload::make('thumbnail'),
 
                 Grid::make([
                     'default' => 1,
                 ])
                     ->schema([
-                        Gutenberg::make('body')->required(),
-//                            ->fileAttachmentsDirectory('photos')
-//                            ->fileAttachmentsVisibility('private'),
+                        GutField::make('lb_content')->required(),
+                        RichEditor::make('lb_content')->required()
+                            ->fileAttachmentsDirectory('photos')
+                            ->fileAttachmentsVisibility('private'),
                     ])
             ]);
     }
