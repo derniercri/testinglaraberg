@@ -12,6 +12,7 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "nesbot/carbon": "^2.58",
         "unisharp/laravel-filemanager": "^2.4",
         "van-ons/laraberg": "^1.1"
     },

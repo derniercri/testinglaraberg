@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
 
 
 //        1 admin
-        //TODO - create priviliege for admin user and assign it to admin user
         User::insert([
             [
                 'name' => 'admin',
