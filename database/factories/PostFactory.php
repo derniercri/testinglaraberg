@@ -2,9 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -19,15 +17,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text('20'),
-            'lb_content' => $this->faker->sentence('200'),
-            'excerpt' => $this->faker->realText('144'),
-            'user_id' => $this->faker->numberBetween(1, 10),
-            'category_id' => $this->faker->numberBetween(1, 5),
-            'age_id' => $this->faker->numberBetween(1, 5),
-            'published' => $this->faker->boolean(),
-            'created_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
-            'updated_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
+            'title' => $this->faker->sentence,
+            'body' => $this->faker->paragraph,
+            'thumbnail'=> $this->faker->imageUrl(),
+            'category_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }
